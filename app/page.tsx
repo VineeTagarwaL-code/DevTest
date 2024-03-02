@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import Main from "@/components/main";
 import Navbar from "@/components/navbar";
 import { MacbookScrollDemo } from "@/components/ui/macBook/macBook";
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Main />
       <MacbookScrollDemo />
+      <Footer/>
     </div>
   );
 }
