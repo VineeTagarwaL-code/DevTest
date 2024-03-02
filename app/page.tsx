@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar";
 import { MacbookScrollDemo } from "@/components/ui/macBook/macBook";
 import { Tally1, Target, Tally2 } from "lucide-react";
 import FeatureCard from "@/components/feature-card";
+import Footer from "@/components/footer";
 const Different: any = [
   {
     icon: <Tally1 className="text-purple-600 mb-6" size={40} />,
@@ -42,7 +43,8 @@ export default function Home() {
     <div className="min-h-screen w-screen bg-[#111111] flex flex-col  overflow-hidden">
       <Navbar />
       <Main />
-      <div className="flex flex-col px-16 py-4 w-full justify-center items-center ">
+      <MacbookScrollDemo />
+      <div className="flex flex-col  py-4 w-fit mx-auto justify-center items-center ">
         <h1 className="text-3xl text-gray-600 font-bold mb-8 tracking-wider cursor-pointer hover:text-purple-600">
           WHAT MAKES US DIFFERENT ?
         </h1>
@@ -53,7 +55,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col px-16 py-4 w-full justify-center items-center ">
+      <div className="flex flex-col  py-4 w-fit mx-auto justify-center items-center ">
         <h1 className="text-3xl text-gray-600 font-bold mb-8 tracking-wider cursor-pointer hover:text-purple-600">
           FEATURES
         </h1>
@@ -63,6 +65,7 @@ export default function Home() {
           })}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
