@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 export function Main() {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center mb-20">
       <TypewriterEffect />
       <div className="flex flex-col items-center justify-center space-y-4">
         <p

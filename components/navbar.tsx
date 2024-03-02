@@ -4,7 +4,7 @@ import UserButton from "./UserButton";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between flex-row items-center w-screen px-8 py-6 bg-[#111111] mb-56">
+    <nav className="flex justify-between flex-row items-center w-screen px-8 py-6 bg-[#111111] mb-44">
       <div className="flex flex-nowrap items-center gap-10 min-w-[305px]">
         <p className="text-purple-500 text-base font-light cursor-pointer">
           FAQ
