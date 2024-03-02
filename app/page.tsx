@@ -1,5 +1,11 @@
 
-export default async function Home() {
-  return <h1>HEY</h1>;
+import LandingPage from "./page/landingPage";
+export default function Home() {
+  return (
+   <>
+   <LandingPage/>
+
+   </>
+  );
 
 }
