@@ -21,7 +21,10 @@
     "react-dom": "^18",
     "react-resizable-panels": "^2.0.11",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "@livekit/components-react": "^2.0.0",
+    "@livekit/components-styles": "^1.0.9",
+    "livekit-server-sdk": "^2.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",
