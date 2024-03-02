@@ -1,14 +1,14 @@
 import "animate.css";
-
+import { TypewriterEffect } from "./ui/typewriter/typewriter";
 export function Main() {
   return (
-    <>
+    <div className="flex flex-col justify-center items-center">
+      <TypewriterEffect />
       <div className="flex flex-col items-center justify-center space-y-4">
-       
-        <p className=" md:w-[38%] animate__animated animate__backInUp delay-2000 mb-5 text-center">
+        <p className=" md:w-[38%] animate__animated animate__backInUp delay-2000 mb-5 text-center text-white ">
           Dream of limitless coding collaboration? DevTest merges Replits
-          dynamic coding with Google Meets real-time magic. Code and
-          communicate effortlessly in one exhilarating space. Join now!
+          dynamic coding with Google Meets real-time magic. Code and communicate
+          effortlessly in one exhilarating space. Join now!
         </p>
         <div className="flex space-x-4">
           <input
@@ -30,7 +30,7 @@ export function Main() {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
