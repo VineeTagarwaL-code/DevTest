@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart, ChevronDown, Search } from "lucide-react";
+import UserButton from "./UserButton";
 
 const Navbar = () => {
   return (
@@ -25,9 +26,7 @@ const Navbar = () => {
         </p>
       </div>
       <div className="flex flex-nowrap gap-1 items-center justify-end min-w-[305px]">
-        <button className=" text-nowrap text-sm  text-gray-200 hover:bg-[#ffdd00] bg-gradient-to-r from-indigo-500 to-purple-500 transition-all px-3 py-2 rounded-full ">
-          Log in
-        </button>
+        <UserButton />
       </div>
     </nav>
   );
