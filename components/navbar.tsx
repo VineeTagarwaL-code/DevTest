@@ -1,9 +1,10 @@
 import React from "react";
 import { Heart, ChevronDown, Search } from "lucide-react";
+import UserButton from "./UserButton";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between flex-row items-center w-screen px-8 py-6 bg-[#111111]">
+    <nav className="flex justify-between flex-row items-center w-screen px-8 py-6 bg-[#111111] mb-44">
       <div className="flex flex-nowrap items-center gap-10 min-w-[305px]">
         <p className="text-purple-500 text-base font-light cursor-pointer">
           FAQ
@@ -25,9 +26,7 @@ const Navbar = () => {
         </p>
       </div>
       <div className="flex flex-nowrap gap-1 items-center justify-end min-w-[305px]">
-        <button className=" text-nowrap text-sm  text-gray-200 hover:bg-[#ffdd00] bg-gradient-to-r from-indigo-500 to-purple-500 transition-all px-3 py-2 rounded-full ">
-          Log in
-        </button>
+        <UserButton />
       </div>
     </nav>
   );

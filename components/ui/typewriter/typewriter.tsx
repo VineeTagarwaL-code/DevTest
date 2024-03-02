@@ -33,7 +33,9 @@ export function TypewriterEffect() {
     {
       text: "baby?",
       className:
-        "text-transparent bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text hover:from-pink-500 hover:to-yellow-500 focus:outline-none focus:ring focus:border-blue-300 active:bg-indigo-800 ",
+
+        "text-transparent bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text hover:from-pink-500 hover:to-yellow-500 focus:outline-none focus:ring focus:border-blue-300 active:bg-indigo-800 cursor-pointer",
+
     },
   ];
   return (
