@@ -13,7 +13,7 @@ export function Main() {
       <TypewriterEffect />
       <div className="flex flex-col items-center justify-center space-y-4">
         <p
-          className={`md:w-[55%] animate__animated animate__backInUp delay-2000 mb-5 text-center text-white tracking-wider ${poppins.className}`}
+          className={`md:w-[45%] animate__animated animate__backInUp delay-2000 mb-5 text-center text-white tracking-wider ${poppins.className}`}
         >
           Dream of limitless coding collaboration? DevTest merges Replits
           dynamic coding with Google Meets real-time magic. Code and communicate
