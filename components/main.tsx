@@ -1,18 +1,21 @@
 import "animate.css";
 import { TypewriterEffect } from "./ui/typewriter/typewriter";
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google";
+import { Microphone } from "./MicroPhone";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: "100"
-})
+  subsets: ["latin"],
+  weight: "100",
+});
 
 export function Main() {
   return (
     <div className="flex flex-col justify-center items-center">
       <TypewriterEffect />
       <div className="flex flex-col items-center justify-center space-y-4">
-        <p className={`md:w-[55%] animate__animated animate__backInUp delay-2000 mb-5 text-center text-white tracking-wider ${poppins.className}`}>
+        <p
+          className={`md:w-[55%] animate__animated animate__backInUp delay-2000 mb-5 text-center text-white tracking-wider ${poppins.className}`}
+        >
           Dream of limitless coding collaboration? DevTest merges Replits
           dynamic coding with Google Meets real-time magic. Code and communicate
           effortlessly in one exhilarating space. Join now!
@@ -26,7 +29,7 @@ export function Main() {
           </button>
 
           <div className="flex gap-x-3">
-          <input
+            <input
               type="text"
               placeholder="enter your url"
               className="px-4 py-2 rounded-md text-white bg-black border border-gray-400"
@@ -38,6 +41,9 @@ export function Main() {
                 Join
               </div>
             </button>
+            <div className="text-3xl mt-10">
+              <Microphone />
+            </div>
           </div>
         </div>
       </div>
