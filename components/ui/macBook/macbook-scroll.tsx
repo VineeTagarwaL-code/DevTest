@@ -68,9 +68,9 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="min-h-[200vh]  flex flex-col items-center py-0 md:py-20 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100  scale-[0.35] sm:scale-50"
+      className="min-h-[200vh]  flex flex-col items-center py-0 md:py-80 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100  scale-[0.35] sm:scale-50"
     >
-      {/* <motion.h2
+      <motion.h2
         style={{
           translateY: textTransform,
           opacity: textOpacity,
@@ -82,7 +82,7 @@ export const MacbookScroll = ({
             This Macbook is built with Tailwindcss. <br /> No kidding.
           </span>
         )}
-      </motion.h2> */}
+      </motion.h2>
       {/* Lid */}
       <Lid
         src={src}
@@ -663,6 +663,5 @@ const AceternityLogo = () => {
         strokeLinecap="round"
       />
     </svg>
-    
   );
 };
