@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function MacbookScrollDemo() {
   return (
-    <div className="overflow-hidden dark:bg-[#0B0B0F] w-full">
+    <div className="overflow-hidden dark:bg-[#0B0B0F] w-full mb-24">
       <MacbookScroll
         badge={
           <Link href="https://peerlist.io/manuarora">

@@ -4,6 +4,7 @@ import {
   User as UserIcon,
   UserCircle2,
   LogOut,
+  Loader,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -16,7 +17,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { Loader2 } from "lucide-react";
+
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,8 +31,8 @@ const UserButton = ({ className }: UserButtonProps) => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center gap-1 py-1 px-3 rounded-full text-gray-800 border-2 border-gray-200 focus:outline-none">
-        <Loader2 size={28} className="animate-spin" />
+      <div className=" py-2 px-6 border-2 border-purple-600 rounded-full">
+        <Loader className="animate-spin text-purple-600" />
       </div>
     );
   }
@@ -102,24 +103,19 @@ const UserButton = ({ className }: UserButtonProps) => {
         <DropdownMenuSeparator className="bg-gray-300" />
         <div className="flex flex-col mt-3 gap-1 text-gray-800">
           <DropdownMenuItem asChild>
-            <Link
-              href="/"
-              className="flex items-center gap-2 bg-transparent hover:bg-transparent border-2 border-solid border-red-500 "
-            >
+            <div className="flex flex-row justify-start gap-4 items-center bg-red hover:bg-red-500">
               <UserIcon size={22} />
               <span className="text-lg">Profile</span>
-            </Link>
+            </div>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link href="/api/auth/logout">
-              <Button
-                size="sm"
-                className="w-full flex gap-2 bg-transparent hover:bg-transparent"
-              >
-                <LogOut size={20} />
-                Log out
-              </Button>
-            </Link>
+            <Button
+              size="sm"
+              className="flex items-center gap-2 bg-transparent hover:bg-transparent text-white cursor-pointer rounded-full"
+            >
+              <LogOut size={20} />
+              Log out
+            </Button>
           </DropdownMenuItem>
         </div>
       </DropdownMenuContent>
