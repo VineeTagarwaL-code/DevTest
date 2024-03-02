@@ -6,6 +6,7 @@ import axios from "axios";
 
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { Loader } from "lucide-react";
 
 const CodeEditor = () => {
   const [code, setCode] = useState("");
@@ -20,6 +21,7 @@ const CodeEditor = () => {
   useEffect(() => {
     if (token !== "") {
       getResult();
+      console.log(token);
     }
   }, [token]);
 
@@ -36,7 +38,7 @@ const CodeEditor = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <CodeMirror
         value={code}
         height="100vh"
@@ -44,9 +46,12 @@ const CodeEditor = () => {
         extensions={[javascript()]}
         onChange={handleChange}
       />
-      <Button onClick={handleRun}>Run</Button>
-      <div>{isLoading ? "Loading..." : ""}</div>
-      <span>{output}</span>
+      <Button
+        onClick={handleRun}
+        className="absolute top-0 right-0   m-2 bg- text-white bg-emerald-700"
+      >
+        {isLoading ? <Loader className="animate-spin" /> : "Run"}
+      </Button>
     </div>
   );
 };
