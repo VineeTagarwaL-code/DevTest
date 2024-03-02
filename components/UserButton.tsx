@@ -40,13 +40,23 @@ const UserButton = ({ className }: UserButtonProps) => {
     return (
       <Link
         href="/api/auth/login"
-        className="flex items-center gap-1 py-1 px-3 rounded-md text-gray-800 border-2 group border-gray-200 hover:border-zomato-red/60 focus:outline-none transition-colors duration-200"
+        className="flex items-center gap-1 py-2 px-4 rounded-full border-transparent text-gray-800 group bg-gradient-to-r border-2 hover:border-purple-500 transition-all from-indigo-500 to-purple-500  hover:bg-none  focus:outline-none  duration-200"
       >
-        <span className="font-semibold text-lg">Sign in</span>
-        <UserCircle2 size={21} />
+        <UserIcon
+          size={21}
+          className="text-white group-hover:text-purple-500"
+        />
+        <span className=" text-lg text-white group-hover:text-purple-500 group-hover:text-transparent group-hover:bg-clip-text font-semibold">
+          Sign in
+        </span>
       </Link>
     );
   }
+  // <div className="flex flex-nowrap gap-1 items-center justify-end min-w-[305px]">
+  //       <button className=" text-nowrap text-sm  text-gray-200 hover:bg-[#ffdd00] bg-gradient-to-r from-indigo-500 to-purple-500 transition-all px-3 py-2 rounded-full ">
+  //         Log in
+  //       </button>
+  //     </div>
 
   return (
     <DropdownMenu>
@@ -54,8 +64,8 @@ const UserButton = ({ className }: UserButtonProps) => {
         <Button
           variant="outline"
           className={cn(
-            "group flex gap-1 border-2 data-[state=open]:bg-muted rounded-full px-2",
-            className,
+            "group flex gap-1 border-2 data-[state=open]:bg-muted rounded-full px-2 bg-transparent border-purple-500 hover:bg-transparent",
+            className
           )}
         >
           <Image
@@ -67,12 +77,12 @@ const UserButton = ({ className }: UserButtonProps) => {
           />
           <ChevronDown
             size={21}
-            className="group-data-[state=open]:rotate-180 transition-transform duration-300"
+            className="group-data-[state=open]:rotate-180 transition-transform duration-300 text-purple-500"
           />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="max-w-[350px] z-30 p-4 rounded-lg border-gray-300"
+        className="max-w-[350px] z-30 p-4 rounded-lg border-purple-500 bg-[#0f0f0f]"
         align="end"
         sideOffset={8}
       >
@@ -85,23 +95,27 @@ const UserButton = ({ className }: UserButtonProps) => {
             className="rounded-full"
           />
           <div className="flex flex-col text-sm leading-4 gap-[3px]">
-            <span className="font-semibold text-gray-800 text-[1.125rem]">
-              {user?.name}
-            </span>
-            <span className="text-primary">{user?.email}</span>
+            <span className=" text-gray-400 text-[1.125rem]">{user?.name}</span>
+            <span className="text-gray-500">{user?.email}</span>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator className="bg-gray-300" />
         <div className="flex flex-col mt-3 gap-1 text-gray-800">
           <DropdownMenuItem asChild>
-            <Link href="/" className="flex items-center gap-2">
+            <Link
+              href="/"
+              className="flex items-center gap-2 bg-transparent hover:bg-transparent border-2 border-solid border-red-500 "
+            >
               <UserIcon size={22} />
               <span className="text-lg">Profile</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link href="/api/auth/logout">
-              <Button size="sm" className="w-full flex gap-2">
+              <Button
+                size="sm"
+                className="w-full flex gap-2 bg-transparent hover:bg-transparent"
+              >
                 <LogOut size={20} />
                 Log out
               </Button>
