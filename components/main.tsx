@@ -1,12 +1,12 @@
 import "animate.css";
 import { TypewriterEffect } from "./ui/typewriter/typewriter";
+
 import { Poppins } from 'next/font/google'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: "100"
 })
-
 export function Main() {
   return (
     <div className="flex flex-col justify-center items-center">
@@ -24,14 +24,12 @@ export function Main() {
               New meeting
             </div>
           </button>
-
           <div className="flex gap-x-3">
           <input
               type="text"
               placeholder="enter your url"
               className="px-4 py-2 rounded-md text-white bg-black border border-gray-400"
             />
-
             <button className="p-[3px] relative ">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
               <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
