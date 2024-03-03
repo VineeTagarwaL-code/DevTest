@@ -1,5 +1,5 @@
 import { MediaRoom } from "@/components/MediaRoom";
-import CodeEditor from "@/components/CodeEditor";
+import CodeAndProblemEditor from "@/components/CodeAndProblemEditor";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -12,10 +12,10 @@ export default function RoomPage({ params }: { params: { id: string } }) {
       <ResizablePanel className="min-w-[20%]">
         <MediaRoom chatId={params.id} video={true} audio={true} />
       </ResizablePanel>
-      <ResizableHandle withHandle />
-      <ResizablePanel>
-        <CodeEditor />
+      <ResizableHandle className="-z-10" />
+      <ResizablePanel className="border-gray-600">
+        <CodeAndProblemEditor />
       </ResizablePanel>
     </ResizablePanelGroup>
-  )
+  );
 }

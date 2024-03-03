@@ -8,6 +8,12 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Loader } from "lucide-react";
 
+import { io } from "socket.io-client";
+import ProblemEditor from "./ProblemEditor";
+import OutputWindow from "./OutputWindow";
+
+const socket = io("http://localhost:8000");
+
 const CodeEditor = () => {
   const [code, setCode] = useState("");
   const [token, setToken] = useState("");
@@ -16,13 +22,14 @@ const CodeEditor = () => {
 
   const handleChange = React.useCallback((value: string) => {
     setCode(value);
+    socket.emit("code-change", value);
   }, []);
 
   useEffect(() => {
     if (token !== "") {
       getResult();
-      console.log(token);
     }
+    console.log(token);
   }, [token]);
 
   const handleRun = async () => {
@@ -33,12 +40,35 @@ const CodeEditor = () => {
 
   const getResult = async () => {
     const res = await axios.get(`/api/judge0/?token=${token}`);
-    console.log(atob(res.data?.stdout));
+    setOutput(atob(res.data?.stdout));
     setIsLoading(false);
   };
 
+  useEffect(() => {
+    socket.on("code-change", (code: string) => {
+      setCode((prev) => code);
+    });
+
+    socket.emit("on-client-connect");
+
+    socket.on("get-editor-state", () => {
+      if (code === "") return;
+      socket.emit("editor-state", code);
+    });
+
+    socket.on("editor-state-from-server", (code: string) => {
+      setCode(code);
+    });
+
+    return () => {
+      socket.off("code-change");
+      socket.off("get-editor-state");
+      socket.off("editor-state-from-server");
+    };
+  }, [code]);
+
   return (
-    <div className="">
+    <>
       <CodeMirror
         value={code}
         height="100vh"
@@ -46,13 +76,9 @@ const CodeEditor = () => {
         extensions={[javascript()]}
         onChange={handleChange}
       />
-      <Button
-        onClick={handleRun}
-        className="absolute top-0 right-0   m-2 bg- text-white bg-emerald-700"
-      >
-        {isLoading ? <Loader className="animate-spin" /> : "Run"}
-      </Button>
-    </div>
+      <ProblemEditor />
+      <OutputWindow output={output} isLoading={isLoading} onClick={handleRun} />
+    </>
   );
 };
 
