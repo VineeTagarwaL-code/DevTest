@@ -3,7 +3,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { javascript } from "@codemirror/lang-javascript";
 import axios from "axios";
-
+import { Microphone } from "./MicroPhone";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Loader } from "lucide-react";
@@ -68,7 +68,8 @@ const CodeEditor = () => {
   }, [code]);
 
   return (
-    <>
+    <div className="relative">
+      <Microphone />
       <CodeMirror
         value={code}
         height="100vh"
@@ -76,9 +77,10 @@ const CodeEditor = () => {
         extensions={[javascript()]}
         onChange={handleChange}
       />
+
       <ProblemEditor />
       <OutputWindow output={output} isLoading={isLoading} onClick={handleRun} />
-    </>
+    </div>
   );
 };
 

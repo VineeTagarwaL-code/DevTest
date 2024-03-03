@@ -5,6 +5,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { Microphone } from "@/components/MicroPhone";
 
 export default function RoomPage({ params }: { params: { id: string } }) {
   return (
