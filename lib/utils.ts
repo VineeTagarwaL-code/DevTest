@@ -25,3 +25,4 @@ export function generateRandomCode(): string {
   }
   return code;
 }
+

@@ -42,8 +42,13 @@ export function Main({ setIsLoading }: any) {
 
   return (
     <div className="flex flex-col justify-center items-center mb-20">
-      <TypewriterEffect />
       <div className="flex flex-col items-center justify-center space-y-4">
+        <h2 className="text-5xl text-white">
+          What if GMeet & Replit had a{" "}
+          <span className="bg-clip-text text-transparent font-semibold bg-gradient-to-r to-indigo-500 from-purple-500">
+            baby?
+          </span>
+        </h2>
         <p
           className={`md:w-[45%] animate__animated animate__backInUp delay-2000 mb-5 text-center text-white tracking-wider ${poppins.className}`}
         >

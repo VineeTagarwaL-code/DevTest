@@ -40,9 +40,8 @@
     "remark-gfm": "^4.0.0",
     "socket.io-client": "^4.7.4",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
     "uuidv4": "^6.2.13"
-
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

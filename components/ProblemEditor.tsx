@@ -27,6 +27,7 @@ const ProblemEditor = () => {
             className="h-[85vh] w-full rounded-sm border border-gray-400/50 p-3"
             placeholder="Write your problem here... (Markdown supported btw!)"
           />
+
           <button
             className="bg-green-800 text-white text-lg font-semibold mt-2 px-2 py-1 rounded-lg self-end"
             onClick={handleSave}
