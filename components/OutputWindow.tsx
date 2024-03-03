@@ -21,7 +21,7 @@ const OutputWindow = ({ output, isLoading, onClick }: OutputWindowProps) => {
       <DialogTrigger asChild>
         <Button
           onClick={onClick}
-          className="absolute top-0 right-0 m-1 text-white bg-emerald-700"
+          className="absolute top-0 right-0 m-3 text-white bg-emerald-700"
         >
           {isLoading ? <Loader className="animate-spin" /> : "Run"}
         </Button>
