@@ -9,7 +9,7 @@ import { io } from "socket.io-client";
 import ProblemEditor from "./ProblemEditor";
 import OutputWindow from "./OutputWindow";
 
-const socket = io("https://int-vc-server-1.onrender.com");
+const socket = io("http://localhost:8000");
 
 const CodeEditor = () => {
   const [code, setCode] = useState("");
