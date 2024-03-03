@@ -3,15 +3,25 @@
 import React, { useState, useRef, useEffect } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import useSpeechToText from "@/hooks/speedToText";
+import { MicIcon } from "lucide-react";
 
 const ProblemEditor = () => {
   const [problem, setProblem] = useState("");
   const [isEditing, setIsEditing] = useState(true);
   const problemRef = useRef(problem);
 
+  const { speech, transcript, handleClickToRecord } = useSpeechToText();
+
   useEffect(() => {
     problemRef.current = problem;
   }, [problem]);
+
+  useEffect(() => {
+    if (speech) {
+      setProblem(transcript);
+    }
+  }, [speech, transcript]);
 
   const handleSave = () => {
     setIsEditing(false);
@@ -20,7 +30,13 @@ const ProblemEditor = () => {
   return (
     <div>
       {isEditing ? (
-        <div className="flex flex-col">
+        <div className="relative flex flex-col">
+          <button
+            onClick={handleClickToRecord}
+            className="absolute  bg-transparent z-10 right-2 my-16 mx-2 bg-black px-2 py-2 rounded-full border-purple-600  border-solid border-2"
+          >
+            <MicIcon className="text-purple-600" />
+          </button>
           <textarea
             value={problem}
             onChange={(e) => setProblem(e.target.value)}

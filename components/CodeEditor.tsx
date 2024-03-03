@@ -5,14 +5,11 @@ import { javascript } from "@codemirror/lang-javascript";
 import axios from "axios";
 import { Microphone } from "./MicroPhone";
 import React, { useEffect, useState } from "react";
-import { Button } from "./ui/button";
-import { Loader } from "lucide-react";
-
 import { io } from "socket.io-client";
 import ProblemEditor from "./ProblemEditor";
 import OutputWindow from "./OutputWindow";
 
-const socket = io("http://localhost:8000");
+const socket = io("https://int-vc-server-1.onrender.com");
 
 const CodeEditor = () => {
   const [code, setCode] = useState("");

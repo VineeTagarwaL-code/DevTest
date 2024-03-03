@@ -1,11 +1,5 @@
 "use client";
-import {
-  ChevronDown,
-  User as UserIcon,
-  UserCircle2,
-  LogOut,
-  Loader,
-} from "lucide-react";
+import { ChevronDown, User as UserIcon, LogOut, Loader } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -66,7 +60,7 @@ const UserButton = ({ className }: UserButtonProps) => {
           variant="outline"
           className={cn(
             "group flex gap-1 border-2 data-[state=open]:bg-muted rounded-full px-2 bg-transparent border-purple-500 hover:bg-transparent",
-            className
+            className,
           )}
         >
           <Image
