@@ -1,6 +1,6 @@
 import React from "react";
 import { Heart, ChevronDown, Search } from "lucide-react";
-import UserButton from "./UserButton";
+// import UserButton from "./UserButton";
 
 const Navbar = () => {
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
         </p>
       </div>
       <div className="flex flex-nowrap gap-1 items-center justify-end min-w-[305px]">
-        <UserButton />
+        {/* <UserButton /> */}
       </div>
     </nav>
   );

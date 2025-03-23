@@ -7,14 +7,15 @@ export async function GET(req: NextRequest) {
   if (!room) {
     return NextResponse.json(
       { error: 'Missing "room" query parameter' },
-      { status: 400 },
+      { status: 400 }
     );
   } else if (!username) {
     return NextResponse.json(
       { error: 'Missing "username" query parameter' },
-      { status: 400 },
+      { status: 400 }
     );
   }
+  console.log(process.env.LIVEKIT_API_KEY, process.env.LIVEKIT_SECRET_KEY);
 
   const apiKey = process.env.LIVEKIT_API_KEY;
   const apiSecret = process.env.LIVEKIT_SECRET_KEY;
@@ -23,7 +24,7 @@ export async function GET(req: NextRequest) {
   if (!apiKey || !apiSecret || !wsUrl) {
     return NextResponse.json(
       { error: "Server misconfigured" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 

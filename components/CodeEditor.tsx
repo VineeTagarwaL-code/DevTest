@@ -36,7 +36,10 @@ const CodeEditor = () => {
   };
 
   const getResult = async () => {
-    const res = await axios.get(`/api/judge0/?token=${token}`);
+    const res = await axios.get(
+      `http://localhost:3001/api/judge0?token=${token}`
+    );
+
     setOutput(atob(res.data?.stdout));
     setIsLoading(false);
   };
@@ -66,7 +69,6 @@ const CodeEditor = () => {
 
   return (
     <div className="relative">
-      <Microphone />
       <CodeMirror
         value={code}
         height="100vh"

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import "@livekit/components-styles";
-import { useUser } from "@auth0/nextjs-auth0/client";
+// import { useUser } from "@auth0/nextjs-auth0/client";
 import { Loader2 } from "lucide-react";
 
 interface MediaRoomProps {
@@ -13,7 +13,10 @@ interface MediaRoomProps {
 }
 
 export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
-  const { user } = useUser();
+  // const { user } = useUser();
+  const user = {
+    name: "vineet",
+  };
   const [token, setToken] = useState("");
 
   useEffect(() => {
@@ -24,7 +27,7 @@ export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
     (async () => {
       try {
         const resp = await fetch(
-          `/api/livekit?room=${chatId}&username=${name}`,
+          `/api/livekit?room=${chatId}&username=${name}`
         );
         const data = await resp.json();
         setToken(data.token);
