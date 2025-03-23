@@ -66,7 +66,6 @@ const CodeEditor = () => {
 
   return (
     <div className="relative">
-      <Microphone />
       <CodeMirror
         value={code}
         height="100vh"

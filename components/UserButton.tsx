@@ -60,7 +60,7 @@ const UserButton = ({ className }: UserButtonProps) => {
           variant="outline"
           className={cn(
             "group flex gap-1 border-2 data-[state=open]:bg-muted rounded-full px-2 bg-transparent border-purple-500 hover:bg-transparent",
-            className,
+            className
           )}
         >
           <Image
@@ -105,6 +105,10 @@ const UserButton = ({ className }: UserButtonProps) => {
           <DropdownMenuItem>
             <Button
               size="sm"
+              onClick={() => {
+                window.location.href = "/api/auth/logout";
+                
+              }}
               className="flex items-center gap-2 bg-transparent hover:bg-transparent text-white cursor-pointer rounded-full"
             >
               <LogOut size={20} />

@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import useSpeechToText from "@/hooks/speedToText";
 import { MicIcon } from "lucide-react";
-
+import { io } from "socket.io-client";
 const ProblemEditor = () => {
   const [problem, setProblem] = useState("");
   const [isEditing, setIsEditing] = useState(true);
@@ -13,6 +13,7 @@ const ProblemEditor = () => {
 
   const { speech, transcript, handleClickToRecord } = useSpeechToText();
 
+  const socket = io("http://localhost:8000");
   useEffect(() => {
     problemRef.current = problem;
   }, [problem]);
@@ -20,12 +21,39 @@ const ProblemEditor = () => {
   useEffect(() => {
     if (speech) {
       setProblem(transcript);
+      socket.emit("problem-change", transcript);
     }
   }, [speech, transcript]);
 
+  const handleProblemChange = (problem: string) => {
+    socket.emit("problem-change", problem);
+    setProblem(problem);
+  };
   const handleSave = () => {
     setIsEditing(false);
   };
+
+  useEffect(() => {
+    socket.on("problem-change", (problem: string) => {
+      setProblem(problem);
+    });
+    socket.emit("on-client-connect");
+
+    socket.on("get-problem-state", () => {
+      if (problem === "") return;
+      socket.emit("problem-state", problem);
+    });
+
+    socket.on("problem-state-from-server", (problem: string) => {
+      setProblem(problem);
+    });
+
+    return () => {
+      socket.off("problem-change");
+      socket.off("get-problem-state");
+      socket.off("problem-state-from-server");
+    };
+  }, [problem]);
 
   return (
     <div>
@@ -39,7 +67,7 @@ const ProblemEditor = () => {
           </button>
           <textarea
             value={problem}
-            onChange={(e) => setProblem(e.target.value)}
+            onChange={(e) => handleProblemChange(e.target.value)}
             className="h-[85vh] w-full rounded-sm border border-gray-400/50 p-3"
             placeholder="Write your problem here... (Markdown supported btw!)"
           />
