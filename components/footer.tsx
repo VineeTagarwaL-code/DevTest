@@ -6,10 +6,10 @@ const Footer = () => {
           <a className="flex title-font font-medium items-center md:justify-start justify-center ">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
 
-            <span className="ml-3 text-xl">DevTest</span>
+            <span className="ml-3 text-xl">PrepVerse</span>
           </a>
           <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-            © DevTest
+            © PrepVerse
             <a
               className="text-gray-600 ml-1"
               rel="noopener noreferrer"

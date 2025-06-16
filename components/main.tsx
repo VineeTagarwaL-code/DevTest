@@ -52,7 +52,7 @@ export function Main({ setIsLoading }: any) {
         <p
           className={`md:w-[45%] animate__animated animate__backInUp delay-2000 mb-5 text-center text-white tracking-wider ${poppins.className}`}
         >
-          Dream of limitless coding collaboration? DevTest merges Replits
+          Dream of limitless coding collaboration? PrepVerse merges Replits
           dynamic coding with Google Meets real-time magic. Code and communicate
           effortlessly in one exhilarating space. Join now!
         </p>
@@ -70,7 +70,7 @@ export function Main({ setIsLoading }: any) {
           <div className="flex gap-x-3">
             <input
               type="text"
-              placeholder="Enter DevTest code"
+              placeholder="Enter PrepVerse code"
               className={`px-4 py-2 rounded-md text-white bg-black border border-gray-400 ${
                 inputError ? "border-red-500" : ""
               }`}

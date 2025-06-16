@@ -22,8 +22,7 @@ const Navbar = () => {
       </div>
       <div>
         <p className="text-2xl bg-clip-text text-transparent font-semibold bg-gradient-to-r to-indigo-500 from-purple-500 ">
-          DevTest
-        </p>
+PrepVerse        </p>
       </div>
       <div className="flex flex-nowrap gap-1 items-center justify-end min-w-[305px]">
         <UserButton />

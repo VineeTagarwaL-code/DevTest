@@ -6,8 +6,11 @@ import { MacbookScrollDemo } from "@/components/ui/macBook/macBook";
 import { Tally1, Target, Tally2, Code, Users } from "lucide-react";
 import FeatureCard from "@/components/feature-card";
 import Footer from "@/components/footer";
-import Loader from "@/components/loader";
+import { LoadingOverlay } from "@/components/ui/loading";
 import { Toaster } from "@/components/ui/toaster";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+
 const Different: any = [
   {
     icon: <Tally1 className="text-purple-600 mb-6" size={40} />,
@@ -44,13 +47,22 @@ const Features: any = [
 ];
 export default function Home() {
   const [loading, setIsLoading] = React.useState(false);
+  const router = useRouter();
 
   return (
     <div className="min-h-screen  bg-[#111111] flex flex-col  overflow-hidden">
       <Toaster />
-      {loading && <Loader />}
+      {loading && <LoadingOverlay text="Loading your experience..." />}
       <Navbar />
       <Main setIsLoading={setIsLoading} />
+      <div className="flex justify-center mb-8">
+        <Button 
+          onClick={() => router.push('/prep')}
+          className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg"
+        >
+          Start Technical Prep
+        </Button>
+      </div>
       <MacbookScrollDemo />
       <div className="flex flex-col  py-4 w-fit mx-auto justify-center items-center mb-24 ">
         <h1 className="text-3xl text-gray-600 font-bold mb-8 tracking-wider cursor-pointer hover:text-purple-600">
